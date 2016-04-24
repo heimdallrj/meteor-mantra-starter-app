@@ -29,7 +29,6 @@ export function setSeoTags(DocHead) {
 
 export const composer = ({ context, actions }, onData) => {
   const { Meteor, DocHead, LocalState } = context();
-  const { user } = actions();
 
   const data = {
     loggedIn: Boolean(Meteor.user()),

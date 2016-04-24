@@ -1,14 +1,23 @@
-export function login({ Meteor, window }, callback) {
-  Meteor.loginWithGithub({
-    requestPermissions: ['user:email'],
-  }, () => {
-    if (callback) callback();
-  });
-}
 
 export default {
-  login(context) {
-    login(context);
+  loginWithGithub({ Meteor }) {
+     Meteor.loginWithGithub({
+      requestPermissions: ['user:email'],
+    }, () => {
+      // if (callback) callback();
+    });
+  },
+
+  loginWithFacebook({ Meteor }) {
+    Meteor.loginWithFacebook();
+  },
+
+  loginWithGoogle({ Meteor}) {
+    Meteor.loginWithGoogle();
+  },
+
+  loginWithTwitter({ Meteor }) {
+    Meteor.loginWithTwitter();
   },
 
   logout({ Meteor }) {

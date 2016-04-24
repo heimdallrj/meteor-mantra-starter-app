@@ -1,15 +1,14 @@
 /* eslint no-undef:0 */
 import { Meteor } from 'meteor/meteor';
 
-export default function () {
-  ServiceConfiguration.configurations.remove({
-    service: 'github',
-  });
+const services = Meteor.settings.private.oAuth;
 
-  const githubConfig = Meteor.settings.github;
-
-  ServiceConfiguration.configurations.insert({
-    service: 'github',
-    ...githubConfig,
-  });
-}
+export default configure = () => {
+  if ( services ) {
+    for( let service in services ) {
+      ServiceConfiguration.configurations.upsert( { service: service }, {
+        $set: services[ service ]
+      });
+    }
+  }
+};

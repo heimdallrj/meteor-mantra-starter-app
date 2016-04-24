@@ -29,3 +29,6 @@ kadira:stripe-konnect
 kadira:dochead
 verso:intercom
 force-ssl
+accounts-facebook
+accounts-google
+accounts-twitter

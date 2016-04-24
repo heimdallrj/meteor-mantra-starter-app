@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from '../containers/login';
 
 class FrontPage extends React.Component {
   constructor() {
@@ -9,12 +10,17 @@ class FrontPage extends React.Component {
     return (
       <div>
         <p>Front Page</p>
+
+        <Login />
+
       </div>
     );
   }
 }
 
 FrontPage.propTypes = {
+  loggedIn: React.PropTypes.bool,
+  loggingIn: React.PropTypes.bool,
 };
 
 export default FrontPage;
